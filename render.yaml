@@ -1,0 +1,5 @@
+services:
+  - type: static
+    name: calculadora
+    buildCommand: npm run build # (opcional, si usas un build)
+    staticPublishPath: . # (o la carpeta donde están tus archivos HTML, CSS y JS)
