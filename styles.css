@@ -1,0 +1,213 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease;
+}
+
+#calculator {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 60px;
+    width: 90%;
+    max-width: 300px;
+}
+
+/* Circles and Labels */
+#circles {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.green {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
+}
+
+.orange {
+    background-color: orange;
+}
+
+/* Estilo del título */
+#title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto;
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Display */
+#display {
+    background: #e9ecef;
+    padding: 20px;
+    font-size: 2rem;
+    text-align: right;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-right: 10px;
+}
+
+/* Buttons */
+#buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button {
+    padding: 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button.dark {
+    background: #adb5bd;
+    color: white;
+}
+
+button.orange {
+    background: #fd7e14;
+    color: white;
+}
+
+button.gray {
+    background: #dee2e6;
+    color: black;
+}
+
+#equal {
+    grid-column: span 2;
+    background: #fd7e14;
+    color: white;
+}
+
+/* Tema oscuro */
+body.dark-mode {
+    background-color: #333;
+}
+
+#display.dark-mode {
+    background-color: #444;
+    color: #fff;
+}
+
+/* Header fijo */
+#calculator-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: blue;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+#calculator-header button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #ddd;
+}
+
+#calculator-header button:hover {
+    background: #ccc;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 480px) {
+    #calculator-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #calculator-header button {
+        margin-bottom: 5px;
+    }
+}
+
+/* Ventana emergente del historial */
+#history-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Agregar sombra */
+    display: none; /* Ocultar inicialmente */
+    top: auto; /* Cambiar a 'auto' para posicionar debajo del botón */
+    left: auto; /* Cambiar a 'auto' para posicionar a la derecha del botón */
+    transform: none; /* Eliminar la transformación */
+    margin-top: 10px; /* Espacio entre el botón y la ventana emergente */
+     transition: opacity 0.3s ease; /* Agregar transición */
+    opacity: 0; /* Ocultar inicialmente */
+}
+
+#history-modal.show {
+    display: block; /* Mostrar cuando la clase 'show' está presente */
+    opacity: 1; /* Mostrar con transición */
+}
+
+#history-modal button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #ddd; /* Estilo similar a los otros botones */
+}
+
+#history-modal button:hover {
+    background: #ccc; /* Estilo hover */
+}
+
+#history-modal #history-display {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    padding: 10px; /* Agregar padding */
+    font-size: 1.1rem; /* Aumentar el tamaño de fuente */
+}
