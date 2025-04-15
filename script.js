@@ -82,11 +82,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const historyButton = document.createElement('button');
     historyButton.innerText = 'Historial';
     historyButton.addEventListener('click', (event) => {
-        historyModal.classList.toggle('show'); // Muestra/oculta la ventana emergente
-        // Posicionar la ventana emergente debajo del botón
-        const rect = event.target.getBoundingClientRect();
-        historyModal.style.left = `${rect.right + 10}px`;
-        historyModal.style.top = `${rect.bottom + 10}px`;
+        historyModal.classList.toggle('show');
+
+        // Ajustar el posicionamiento para móviles
+        if (window.matchMedia('(max-width: 480px)').matches) {
+            historyModal.style.left = '5%';
+            historyModal.style.top = '60px';
+        } else {
+            const rect = event.target.getBoundingClientRect();
+            historyModal.style.left = `${rect.right + 10}px`;
+            historyModal.style.top = `${rect.bottom + 10}px`;
+        }
     });
     calculatorHeader.appendChild(historyButton);
 
